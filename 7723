@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이미지 클릭 시 복사</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 100px;
+    }
+    img {
+      width: 200px;
+      cursor: pointer;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>아래 이미지를 클릭하면 번호가 복사돼요</h2>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Phone_font_awesome.svg/512px-Phone_font_awesome.svg.png" alt="전화 아이콘" onclick="copyToClipboard()">
+
+  <p id="copiedText">010-1234-5678</p>
+
+  <script>
+    function copyToClipboard() {
+      const text = document.getElementById("copiedText").textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("복사되었습니다: " + text);
+      });
+    }
+  </script>
+
+</body>
+</html>
